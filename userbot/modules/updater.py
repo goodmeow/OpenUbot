@@ -106,11 +106,11 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
+@register(outgoing=True, pattern="^.update( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Checking for updates, please wait....`")
-    conf = event.pattern_match.group(1)
+    conf = event.pattern_match.group(1).strip()
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     try:
@@ -161,29 +161,17 @@ async def upstream(event):
             f'\n`Your USERBOT is`  **up-to-date**  `with`  **{UPSTREAM_REPO_BRANCH}**\n')
         return repo.__del__()
 
-    if conf is None and force_update is False:
-        changelog_str = f'**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`'
-        if len(changelog_str) > 4096:
-            await event.edit("`Changelog is too big, view the file to see it.`")
-            file = open("output.txt", "w+")
-            file.write(changelog_str)
-            file.close()
-            await event.client.send_file(
-                event.chat_id,
-                "output.txt",
-                reply_to=event.id,
-            )
-            remove("output.txt")
-        else:
-            await event.edit(changelog_str)
-        return await event.respond('`do ".update now/deploy" to update`')
+    if conf == '' and force_update is False:
+        await print_changelogs(event, ac_br, changelog)
+        await event.delete()
+        return await event.respond(
+            '`do ".update now or .update deploy" to update.`')
 
     if force_update:
         await event.edit(
             '`Force-Syncing to latest stable userbot code, please wait...`')
-    else:
-        await event.edit('`Updating userbot, please wait....`')
     if conf == "now":
+        await event.edit('`Updating userbot, please wait....`')
         await update(event, repo, ups_rem, ac_br)
     elif conf == "deploy":
         await deploy(event, repo, ups_rem, ac_br, txt)
