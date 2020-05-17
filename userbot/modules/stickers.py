@@ -19,7 +19,7 @@ from telethon.tl.types import InputStickerSetID
 from telethon.tl.types import DocumentAttributeSticker
 
 KANGING_STR = [
-    "Using Witchery to kang this sticker...",
+    "Mon maap saya cury ya stikernya...",
     "Plagiarising hehe...",
     "Inviting this sticker over to my pack...",
     "Kanging this sticker...",
@@ -32,7 +32,7 @@ KANGING_STR = [
 ]
 
 
-@register(outgoing=True, pattern="^.kang")
+@register(outgoing=True, pattern="^.k")
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     user = await bot.get_me()
@@ -328,7 +328,7 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update({
     "stickers":
-    ">`.kang [emoji('s)]?`"
+    ">`.k [emoji('s)]?`"
     "\nUsage: Reply .kang to a sticker or an image to kang it to your userbot pack "
     "\nor specify the emoji you want to."
     "\n\n>`.kang (emoji['s]]?` [number]?"
