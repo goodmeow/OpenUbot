@@ -7,14 +7,16 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/goodmeow/OpenUbot/tree/sql-extended"> <img src="#" alt="Deploy to Heroku" /></a></p>
+<p align="center" >Hit this button </p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/goodmeow/OpenUbot/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Special thanks to <a href="https://lonami.dev/">lonami</a> for creating <a href="https://github.com/lonamiwebs/Telethon">Telethon</a>
-<p align="center">Huge thanks to <a href="https://github.com/adekmaulana/ProjectBish/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
+<p align="center">Huge thanks to <a href="https://github.com/goodmeow/OpenUbot/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Updates and Support</h2>
-<p align="center">join our <a href="https://t.me/userbotindo">Telegram Support Group</a> for help and support!</p>
+<p align="center">If you want new features, or announcements, you can follow our <a href="https://t.me/userbotindocloud"> Channel </a></p>
+<p align="center">for discussion, bug reporting, and help, you can join <a href=https://t.me/userbotindo"> Support group</a>.</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/goodmeow/OpenUbot/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.c, June 2019</p>
