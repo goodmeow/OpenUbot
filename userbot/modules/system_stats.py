@@ -72,7 +72,7 @@ async def bot_ver(event):
                          "`")
     else:
         await event.edit(
-            "Shame that you don't have git, You're running 9.0 - 'Extended' anyway"
+            "Shame that you don't have git, create first."
         )
 
 
@@ -123,10 +123,10 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.edit("`"
-                     "Service Running! \n\n"
-                     f"Telethon V: {version.__version__} \n"
-                     f"Python V: {python_version()} \n"
-                     f"hmu: {DEFAULTUSER}"
+                     "Userbot Service is Running!! \n\n"
+                     f"Telethon Ver.: {version.__version__} \n"
+                     f"Python   Ver.: {python_version()} \n"
+                     f"User         : {DEFAULTUSER}"
                      "`")
 
 
