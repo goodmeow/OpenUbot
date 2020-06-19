@@ -1,9 +1,9 @@
-# Copyright (C) 2020 GengKapak and AbggaR96s.
+# Copyright (C) 2020 GengKapak and AnggaR96s.
 # All rights reserved.
 
 import requests
 import json
-import asyncio
+import codecs
 import os
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
@@ -29,9 +29,13 @@ async def gengkapak(e):
             break
 
     tsfileloc = f"{TEMP_DOWNLOAD_DIRECTORY}/torrent_search.txt"
-    caption = f"Here are the results for the query: {query}"
     with open(tsfileloc, "w+", encoding="utf8") as out_file:
         out_file.write(str(listdata))
+    fd = codecs.open(tsfileloc,'r',encoding='utf-8')
+    data = fd.read()
+    key = requests.post('https://nekobin.com/api/documents', json={"content": data}).json().get('result').get('key')
+    url = f'https://nekobin.com/raw/{key}'
+    caption = f"Here are the results for the query: {query}\nNekofied to : {url}"
     await e.client.send_file(
         e.chat_id,
         tsfileloc,
