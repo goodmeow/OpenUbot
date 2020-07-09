@@ -50,3 +50,6 @@ vcsi
 colour
 scipy
 wordcloud
+jikanpy
+html_telegraph_poster
+pendulum==2.0.5
