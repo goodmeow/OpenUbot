@@ -40,7 +40,7 @@ search-engine-parser
 speedtest-cli
 sqlalchemy
 telegraph
-telethon
+telethon==1.15.0
 telethon-session-sqlalchemy
 urbandict
 wikipedia
