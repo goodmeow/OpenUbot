@@ -39,6 +39,7 @@ requests
 search-engine-parser
 speedtest-cli
 sqlalchemy
+telegraph
 telethon
 telethon-session-sqlalchemy
 urbandict
