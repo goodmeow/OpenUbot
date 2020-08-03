@@ -21,7 +21,7 @@ heroku3
 httplib2
 humanize
 lxml
-#numpy
+lyricsgenius
 oauth2client
 Pillow
 psycopg2
@@ -46,4 +46,3 @@ urbandict
 wikipedia
 PyGithub
 python-dateutil
-git+https://github.com/johnwmillr/LyricsGenius.git
