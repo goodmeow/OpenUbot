@@ -16,7 +16,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">Updates and Support</h2>
 <p align="center">If you want new features, or announcements, you can follow our <a href="https://t.me/userbotindocloud"> Channel </a></p>
-<p align="center">for discussion, bug reporting, and help, you can join <a href=https://t.me/userbotindo"> Support group</a>.</p>
+<p align="center">for discussion, bug reporting, and help, you can join <a href=https://t.me/userbotindo> Support group</a>.</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/goodmeow/OpenUbot/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.c, June 2019</p>
