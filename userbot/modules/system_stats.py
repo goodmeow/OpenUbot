@@ -163,6 +163,8 @@ async def amireallyalive(alive):
                      f"User         : {DEFAULTUSER} \n"
                      f"Uptime       : {uptime} \n"
                      "`")
+    await asyncio.sleep(15)
+    await alive.delete()
 
 
 @register(outgoing=True, pattern="^.aliveu")
