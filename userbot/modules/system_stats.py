@@ -13,7 +13,11 @@ from platform import python_version, uname
 from shutil import which
 from os import remove
 
-from userbot import CMD_HELP, ALIVE_NAME, StartTime
+from userbot import (
+    CMD_HELP, 
+    ALIVE_NAME, 
+    StartTime
+)
 from telethon import __version__, version
 from userbot.events import register
 
@@ -151,6 +155,7 @@ async def pipcheck(pip):
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
+    uptime = await get_readable_time((time.time() - StartTime))
     await alive.edit("`"
                      "Userbot Service is Running!! \n\n"
                      f"Telethon Ver.: {version.__version__} \n"
