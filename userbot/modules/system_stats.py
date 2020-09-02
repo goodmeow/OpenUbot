@@ -7,6 +7,7 @@
 import platform
 import sys
 import time
+import asyncio
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from platform import python_version, uname
@@ -156,13 +157,16 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     uptime = await get_readable_time((time.time() - StartTime))
-    await alive.edit("`"
-                     "Userbot Service is Running!! \n\n"
-                     f"Telethon Ver.: {version.__version__} \n"
-                     f"Python   Ver.: {python_version()} \n"
-                     f"User         : {DEFAULTUSER} \n"
-                     f"Uptime       : {uptime} \n"
+    output = ("`"
+                     "Userbot Service is Running!!! \n\n"
+                     f"################################### \n"
+                     f"Telethon : {version.__version__} \n"
+                     f"Python   : {python_version()} \n"
+                     f"Uptime   : {uptime} \n"
+                     f"User     : {DEFAULTUSER} \n"
+                     f"################################### \n"
                      "`")
+    await alive.edit(output)
     await asyncio.sleep(15)
     await alive.delete()
 
