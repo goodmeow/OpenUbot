@@ -72,7 +72,8 @@ async def carbon_api(e):
     driver = await chrome()
     driver.get(url)
     await e.edit("`Processing..\n50%`")
-    download_path = os.getcwd() + TEMP_DOWNLOAD_DIRECTORY.strip('.')
+    download_path = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
+                                         "./downloads")
     driver.command_executor._commands["send_command"] = (
         "POST", '/session/$sessionId/chromium/send_command')
     params = {
