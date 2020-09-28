@@ -41,7 +41,6 @@ from userbot.utils import progress, chrome, googleimagesdownload
 CARBONLANG = "auto"
 TTS_LANG = "en"
 TRT_LANG = "en"
-TEMP_DOWNLOAD_DIRECTORY = "/root/userbot/.bin"
 
 
 @register(outgoing=True, pattern=r"^\.crblang (.*)")
@@ -53,9 +52,8 @@ async def setlang(prog):
 
 @register(outgoing=True, pattern=r"^\.carbon")
 async def carbon_api(e):
-    """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing...`")
-    CARBON = 'https://carbon.now.sh/?l={lang}&code={code}'
+    CARBON = "https://carbon.now.sh/?l={lang}&code={code}"
     global CARBONLANG
     textx = await e.get_reply_message()
     pcode = e.text
@@ -71,19 +69,7 @@ async def carbon_api(e):
     url = CARBON.format(code=code, lang=CARBONLANG)
     driver = await chrome()
     driver.get(url)
-    await e.edit("`Processing..\n50%`")
-    download_path = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
-                                   "./downloads")
-    driver.command_executor._commands["send_command"] = (
-        "POST", '/session/$sessionId/chromium/send_command')
-    params = {
-        'cmd': 'Page.setDownloadBehavior',
-        'params': {
-            'behavior': 'allow',
-            'downloadPath': download_path
-        }
-    }
-    driver.execute("send_command", params)
+    await e.edit("`Processing...\n50%`")
     driver.find_element_by_xpath("//button[@id='export-menu']").click()
     driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
@@ -96,8 +82,10 @@ async def carbon_api(e):
     await e.client.send_file(
         e.chat_id,
         file_path,
-        caption=("Made using [Carbon](https://carbon.now.sh/about/),"
-                 "\na project by [Dawn Labs](https://dawnlabs.io/)"),
+        caption=(
+            "Made using [Carbon](https://carbon.now.sh/about/),"
+            "\na project by [Dawn Labs](https://dawnlabs.io/)"
+        ),
         force_document=True,
         reply_to=e.message.reply_to_msg_id,
     )
