@@ -36,13 +36,13 @@ if 1 == 1:
         "admin": "admin",
         "creator": "creator",
         "hidden": "hidden",
-        "channel": "Channel"
-    }
+        "channel": "Channel"}
 
 config = dict({"api_url": "http://api.antiddos.systems",
                "username_colors": ["#fb6169", "#faa357", "#b48bf2", "#85de85",
                                    "#62d4e3", "#65bdf3", "#ff5694"],
                "default_username_color": "#b48bf2"})
+
 
 @register(outgoing=True, pattern="^.quote(?: |$)(.*)")
 async def quotecmd(message):  # noqa: C901
@@ -69,7 +69,9 @@ async def quotecmd(message):  # noqa: C901
         try:
             user = await bot(telethon.tl.functions.channels.GetParticipantRequest(message.chat_id,
                                                                                   reply.from_id))
-            if isinstance(user.participant, telethon.tl.types.ChannelParticipantCreator):
+            if isinstance(
+                    user.participant,
+                    telethon.tl.types.ChannelParticipantCreator):
                 admintitle = user.participant.rank or strings["creator"]
             elif isinstance(user.participant, telethon.tl.types.ChannelParticipantAdmin):
                 admintitle = user.participant.rank or strings["admin"]
@@ -79,7 +81,11 @@ async def quotecmd(message):  # noqa: C901
     elif isinstance(message.to_id, telethon.tl.types.PeerChat):
         chat = await bot(telethon.tl.functions.messages.GetFullChatRequest(reply.to_id))
         participants = chat.full_chat.participants.participants
-        participant = next(filter(lambda x: x.user_id == reply.from_id, participants), None)
+        participant = next(
+            filter(
+                lambda x: x.user_id == reply.from_id,
+                participants),
+            None)
         if isinstance(participant, telethon.tl.types.ChatParticipantCreator):
             admintitle = strings["creator"]
         elif isinstance(participant, telethon.tl.types.ChatParticipantAdmin):
@@ -104,7 +110,8 @@ async def quotecmd(message):  # noqa: C901
 
     pfp = await bot.download_profile_photo(profile_photo_url, bytes)
     if pfp is not None:
-        profile_photo_url = "data:image/png;base64, " + base64.b64encode(pfp).decode()
+        profile_photo_url = "data:image/png;base64, " + \
+            base64.b64encode(pfp).decode()
 
     if user_id is not None:
         username_color = config["username_colors"][user_id % 7]
@@ -140,9 +147,11 @@ async def quotecmd(message):  # noqa: C901
             raise ValueError("Invalid response from server", resp)
     elif resp["status"] == 404:
         if resp["message"] == "ERROR_TEMPLATE_NOT_FOUND":
-            newreq = requests.post(config["api_url"] + "/api/v1/getalltemplates", data={
-                "token": QUOTES_API_TOKEN
-            })
+            newreq = requests.post(
+                config["api_url"] +
+                "/api/v1/getalltemplates",
+                data={
+                    "token": QUOTES_API_TOKEN})
             newreq = newreq.json()
 
             if newreq["status"] == "NOT_ENOUGH_PERMISSIONS":

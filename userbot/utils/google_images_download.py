@@ -4,6 +4,7 @@
 
 ###### Searching and Downloading Google Images to the local disk ######
 
+import socket
 import time  # Importing the time library to check the time of code execution
 import ssl
 import re
@@ -35,15 +36,6 @@ else:  # If the Current Version of Python is 2.x
     from urllib2 import HTTPError, Request, URLError, urlopen
 
     httplib._MAXHEADERS = 1000
-import time  # Importing the time library to check the time of code execution
-import os
-import argparse
-import ssl
-import datetime
-import json
-import re
-import codecs
-import socket
 
 args_list = [
     "keywords",
@@ -564,9 +556,11 @@ class googleimagesdownload:
         try:
             browser = webdriver.Chrome(chromedriver, chrome_options=options)
         except Exception as e:
-            print("Looks like we cannot locate the path the 'chromedriver' (use the '--chromedriver' "
-                  "argument to specify the path to the executable.) or google chrome browser is not "
-                  "installed on your machine (exception: %s)" % e)
+            print(
+                "Looks like we cannot locate the path the 'chromedriver' (use the '--chromedriver' "
+                "argument to specify the path to the executable.) or google chrome browser is not "
+                "installed on your machine (exception: %s)" %
+                e)
             sys.exit()
         browser.set_window_size(1024, 768)
 
@@ -751,7 +745,7 @@ class googleimagesdownload:
                 l4 = content.find(";", l3 + 19)
                 urll2 = content[l3 + 19: l4]
                 return urll2
-            except:
+            except BaseException:
                 return "Cloud not connect to Google Images endpoint"
         else:  # If the Current Version of Python is 2.x
             try:
@@ -939,7 +933,14 @@ class googleimagesdownload:
         return built_url
 
     # building main search URL
-    def build_search_url(self, search_term, params, url, similar_images, specific_site, safe_search):
+    def build_search_url(
+            self,
+            search_term,
+            params,
+            url,
+            similar_images,
+            specific_site,
+            safe_search):
         # check safe_search
         safe_search_string = "&safe=active"
         # check the args and choose the URL
@@ -1011,13 +1012,19 @@ class googleimagesdownload:
                                 "\n", "").replace(
                                 "\r", ""))
             else:
-                print("Invalid file type: Valid file types are either .txt or .csv \n"
-                      "exiting...")
+                print(
+                    "Invalid file type: Valid file types are either .txt or .csv \n"
+                    "exiting...")
                 sys.exit()
         return search_keyword
 
     # make directories
-    def create_directories(self, main_directory, dir_name, thumbnail, thumbnail_only):
+    def create_directories(
+            self,
+            main_directory,
+            dir_name,
+            thumbnail,
+            thumbnail_only):
         dir_name_thumbnail = dir_name + " - thumbnail"
         # make a search keyword  directory
         try:
@@ -1519,9 +1526,12 @@ class googleimagesdownload:
                     time.sleep(int(arguments["delay"]))
             i += 1
         if count < limit:
-            print("\n\nUnfortunately all " + str(
-                limit) + " could not be downloaded because some images were not downloadable. " + str(
-                count - 1) + " is all we got for this search filter!")
+            print("\n\nUnfortunately all " +
+                  str(limit) +
+                  " could not be downloaded because some images were not downloadable. " +
+                  str(count -
+                      1) +
+                  " is all we got for this search filter!")
         return items, errorCount, abs_path
 
     # Bulk Download
@@ -1744,7 +1754,8 @@ class googleimagesdownload:
                                 os.makedirs("logs")
                         except OSError as e:
                             print(e)
-                        json_file = open("logs/" + search_keyword[i] + ".json", "w")
+                        json_file = open(
+                            "logs/" + search_keyword[i] + ".json", "w")
                         json.dump(items, json_file, indent=4, sort_keys=True)
                         json_file.close()
 

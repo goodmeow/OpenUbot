@@ -19,6 +19,7 @@ import json
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
 from userbot.events import register
 
+
 @register(outgoing=True, pattern="^.sayhi$")
 async def shalom(e):
     await e.edit(
@@ -35,14 +36,9 @@ async def shalom(e):
         "\n💰🔷🔷🔷🔷🔷🔷️🔷💰"
         "\n💰🔷💰💰💰💰️💰🔷💰"
         "\n💰💰💰💰💰💰💰💰💰")
-        
-    
+
     CMD_HELP.update({
-    'sayhi':
-    '.sayhi\
+        'sayhi':
+        '.sayhi\
 \nUsage: Say hi to everyone as output.'
-})
-
-
-
-
+    })

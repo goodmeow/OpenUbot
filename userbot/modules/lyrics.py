@@ -16,7 +16,8 @@ from userbot.events import register
 from userbot import (CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME)
 from pylast import User
 
-@register(outgoing=True, pattern="^\.lyrics (?:(now)|(.*) - (.*))")
+
+@register(outgoing=True, pattern=r"^\.lyrics (?:(now)|(.*) - (.*))")
 async def lyrics(lyric):
     if r"-" in lyric.text:
         pass

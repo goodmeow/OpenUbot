@@ -1,4 +1,4 @@
-#Port to userbot by @KeselekPermen69
+# Port to userbot by @KeselekPermen69
 
 import datetime
 from telethon import events
@@ -6,6 +6,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.events import register
 from userbot import bot, CMD_HELP
+
 
 @register(outgoing=True, pattern=r"^\.samata(?: |$)(.*)")
 async def lastname(event):
@@ -56,7 +57,7 @@ async def lastname(event):
 
 
 CMD_HELP.update({
-        "sangmata": 
+    "sangmata":
         "`>.samata`"
         "\nUsage: View user history."
 })

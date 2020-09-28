@@ -40,18 +40,18 @@ def human_to_bytes(size):
     if not re.match(r' ', size):
         size = re.sub(r'([KMGT]?B)', r' \1', size)
     number, unit = [string.strip() for string in size.split()]
-    return int(float(number)*units[unit])
+    return int(float(number) * units[unit])
 
 
-@register(outgoing=True, pattern="^\.magisk$")
+@register(outgoing=True, pattern=r"^\.magisk$")
 async def magisk(request):
     """ magisk latest releases """
     magisk_dict = {
-        "Stable"                  :
+        "Stable":
         "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/stable.json",
-        "Beta"                     :
+        "Beta":
         "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/beta.json",
-        "Canary"   :
+        "Canary":
         "https://raw.githubusercontent.com/topjohnwu/magisk_files/canary/debug.json"
     }
     releases = 'Latest Magisk Releases:\n'
@@ -125,7 +125,7 @@ async def codename_info(request):
     await request.edit(reply)
 
 
-@register(outgoing=True, pattern="^\.pixeldl(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.pixeldl(?: |$)(.*)")
 async def download_api(dl):
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.mkdir(TEMP_DOWNLOAD_DIRECTORY)
@@ -211,7 +211,7 @@ async def download_api(dl):
             f"`ETA` -> {time_formatter(eta)}"
         )
         if round(diff % 15.00) == 0 and display_message != current_message or (
-          downloaded == file_size):
+                downloaded == file_size):
             await dl.edit(current_message)
             display_message = current_message
         if downloaded == file_size:

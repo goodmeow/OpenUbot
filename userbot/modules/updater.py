@@ -137,7 +137,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern="^\.update( now| deploy|$)")
+@register(outgoing=True, pattern=r"^\.update( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Getting information....`")
@@ -214,13 +214,10 @@ async def upstream(event):
     return
 
 
-CMD_HELP.update({
-    'update':
-    ">`.update`"
-    "\nUsage: Checks if the main userbot repository has any updates and shows a changelog if so."
-    "\n\n>`.update now`"
-    "\nUsage: Update your userbot, if there are any updates in your userbot repository."
-    "\n\n>`.update deploy`"
-    "\nUsage: Deploy your userbot"
-    "\nIf you run this even without changelogs, this will triggered deploy always."
-})
+CMD_HELP.update({'update': ">`.update`"
+                 "\nUsage: Checks if the main userbot repository has any updates and shows a changelog if so."
+                 "\n\n>`.update now`"
+                 "\nUsage: Update your userbot, if there are any updates in your userbot repository."
+                 "\n\n>`.update deploy`"
+                 "\nUsage: Deploy your userbot"
+                 "\nIf you run this even without changelogs, this will triggered deploy always."})

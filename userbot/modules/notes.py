@@ -10,7 +10,7 @@ from userbot.events import register
 from asyncio import sleep
 
 
-@register(outgoing=True, pattern="^\.notes$")
+@register(outgoing=True, pattern=r"^\.notes$")
 async def notes_active(svd):
     """ For .notes command, list all of the notes saved in a chat. """
     try:
@@ -112,7 +112,7 @@ async def incom_note(getnt):
         pass
 
 
-@register(outgoing=True, pattern="^\.rmbotnotes (.*)")
+@register(outgoing=True, pattern=r"^\.rmbotnotes (.*)")
 async def kick_marie_notes(kick):
     """ For .rmbotnotes command, allows you to kick all \
         Marie(or her clones) notes from a chat. """
@@ -137,18 +137,15 @@ async def kick_marie_notes(kick):
             BOTLOG_CHATID, "I cleaned all Notes at " + str(kick.chat_id))
 
 
-CMD_HELP.update({
-    "notes":
-    "`#<notename>`"
-    "\nUsage: Gets the specified note."
-    "\n\n>`.save <notename> <notedata>` or reply to a message with >`.save <notename>`"
-    "\nUsage: Saves the replied message as a note with the notename. "
-    "(Works with pics, docs, and stickers too!)"
-    "\n\n>`.notes`"
-    "\nUsage: Gets all saved notes in a chat."
-    "\n\n>`.clear <notename>`"
-    "\nUsage: Deletes the specified note."
-    "\n\n>`.rmbotnotes <marie/rose>`"
-    "\nUsage: Removes all notes of admin bots"
-    " (Currently supported: Marie, Rose and their clones.) in the chat."
-})
+CMD_HELP.update({"notes": "`#<notename>`"
+                 "\nUsage: Gets the specified note."
+                 "\n\n>`.save <notename> <notedata>` or reply to a message with >`.save <notename>`"
+                 "\nUsage: Saves the replied message as a note with the notename. "
+                 "(Works with pics, docs, and stickers too!)"
+                 "\n\n>`.notes`"
+                 "\nUsage: Gets all saved notes in a chat."
+                 "\n\n>`.clear <notename>`"
+                 "\nUsage: Deletes the specified note."
+                 "\n\n>`.rmbotnotes <marie/rose>`"
+                 "\nUsage: Removes all notes of admin bots"
+                 " (Currently supported: Marie, Rose and their clones.) in the chat."})
