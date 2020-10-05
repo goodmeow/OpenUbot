@@ -47,3 +47,4 @@ wikipedia
 PyGithub
 python-dateutil
 vcsi
+colour
