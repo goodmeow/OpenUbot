@@ -48,3 +48,5 @@ PyGithub
 python-dateutil
 vcsi
 colour
+scipy
+wordcloud
