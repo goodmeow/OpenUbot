@@ -174,13 +174,9 @@ async def neko(nekobin):
         )
 
 
-CMD_HELP.update(
-    {
-        "dogbin": ">`.paste <text/reply>`"
-        "\nUsage: Create a paste or a shortened url using dogbin (https://del.dog/)"
-        "\n\n>`.getpaste`"
-        "\nUsage: Gets the content of a paste or shortened url from dogbin (https://del.dog/)"
-        "\n\n>`.neko <text/reply>`"
-        "\nUsage: Create a paste or a shortened url using nekobin (https://nekobin.com/)"
-    }
-)
+CMD_HELP.update({"dogbin": ">`.paste <text/reply>`"
+                 "\nUsage: Create a paste or a shortened url using dogbin (https://del.dog/)"
+                 "\n\n>`.getpaste`"
+                 "\nUsage: Gets the content of a paste or shortened url from dogbin (https://del.dog/)"
+                 "\n\n>`.neko <text/reply>`"
+                 "\nUsage: Create a paste or a shortened url using nekobin (https://nekobin.com/)"})
