@@ -54,8 +54,7 @@ RUN apk add --no-cache=true --update \
     jpeg \
     zip \
     nodejs \
-    freetype-dev \
-    py3-scipy
+    freetype-dev
 
 RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
