@@ -1,4 +1,4 @@
-# We're using Alpine Edge
+# We're using Focal Fossa
 FROM aarunalr/openubot:userbot
 
 #
