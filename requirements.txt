@@ -48,7 +48,6 @@ PyGithub
 python-dateutil
 vcsi
 colour
-scipy
 wordcloud
 jikanpy
 html_telegraph_poster
