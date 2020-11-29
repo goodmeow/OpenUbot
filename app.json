@@ -161,7 +161,7 @@
       "value": "True"
     },
     "DEEZER_ARL_TOKEN": {
-      "description": "Input your DEEZER ARL TOKEN",
+      "description": "Input your DEEZER ARL TOKEN, watch more https://www.youtube.com/watch?v=pWcG9T3WyYQ",
       "value": "",
       "required": false
     }
