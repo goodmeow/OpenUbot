@@ -41,7 +41,7 @@ search-engine-parser
 speedtest-cli
 sqlalchemy
 telegraph
-telethon==1.15.0
+telethon
 telethon-session-sqlalchemy
 urbandict
 wikipedia
@@ -53,4 +53,4 @@ scipy
 wordcloud
 jikanpy
 html_telegraph_poster
-pendulum==2.0.5
+pendulum
